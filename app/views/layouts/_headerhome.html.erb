@@ -1,0 +1,31 @@
+<div id="header" class="clearfix">
+
+	<div class="bar">
+		<p class="project">
+		   VoteWise is a project of <a href="http://www.silentmonkeys.com/" target="_blank"> 
+		   Silent Monkeys Inc. Silent Monkeys is a Not-for-Profit 501(c)(3) organization. 
+		   We do not endorse any political party, candidate or legislation.</a>  
+			
+
+	</div>
+	<h1><a class="logo" href="/signin" title="link to the home page"><%= image_tag 'LogoBanner_VoteWize.png', :alt => 'LogoBanner_VoteWize.png -' %>
+	<%= "#{@page_title_prefix} - " if @page_title_prefix %><%= truncate(@page_title, :length => 200) %> <%= truncate(@head_title, :length => 200) if @head_title %></a></h1>
+
+
+   	<div class="tagline">
+		
+   		<p>A non-profit, non-partisan public resource</p>
+   		
+   		   <% if @logged_in = false then %>
+   		   <%= render :partial => 'formlogin'  %> 
+   		   <% else %>
+   		   <%= render :partial => 'logged_in'  %>
+   		   <% end %>
+   		 
+   	</div>
+
+      <div id="advanced" style="display: none;">
+ 
+      </div>
+
+</div> <!-- // header -->

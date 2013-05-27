@@ -1,0 +1,3 @@
+$("#edit_category_3").before('<div id="flash_notice"><%= escape_javascript(flash.delete(:notice)) %></div>');
+$("#question").html("<%= pluralize(@category.surveys[z].question, 'Question') %>");
+$("#edit_category_3")[0].reset();

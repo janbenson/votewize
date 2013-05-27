@@ -1,0 +1,2 @@
+$('#middle_area').html( "<%= j render :partial => "middle_existinguser" %> ");
+$('#middle_area-center-existing').html( "<%= j render :partial => "shared/micropost_form" %> ");

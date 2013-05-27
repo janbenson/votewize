@@ -1,0 +1,26 @@
+<% @category = Category.find_by_id(params[:data]) %>
+<% @surveys = Survey.find_by_category_id(@category.id) %>
+<% form_for @surveys do |f| %>
+       <p>  
+        Question: <%= f.text_field :question %>  
+        </p>  
+        <% @answer = @surveys.build_answer %>
+        <% @answer.user_id = @up.user_id %> 
+        <% @answer.save %>
+        
+        <%= f.fields_for :answer do |answer| %>
+             <p><%= answer.check_box :agree %>  I completely agree     </p>
+	     <p><%= answer.check_box :agree %>  I agree   </p>
+	     <p><%= answer.check_box :agree %>  I kind of agree   </p>
+	     <p><%= answer.check_box :agree %>  I disagree   </p>
+	     <p><%= answer.check_box :agree %>  I completely disagree   </p>
+ 	<p class="fields">  This statement is:</p>
+	     <p><%= answer.check_box :importance %>    Incredibly important                             </p>
+		<p><%= answer.check_box :importance %> Kind of important                                </p>
+	        <p><%= answer.check_box :importance %> A good thing to trade for something I care about </p>
+	        <p>Comments:</p>
+	        <p><%= answer.text_field :comments %>
+
+	<%end%>
+	 <%= f.button :submit %>
+<% end %>

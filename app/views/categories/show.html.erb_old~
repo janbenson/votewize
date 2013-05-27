@@ -1,0 +1,74 @@
+<%= include_gon %>
+<%= javascript_include_tag 'jquery.min' %>
+ <%= javascript_include_tag 'jquery-ui.min' %>
+
+<div id="content" class="clearfix">
+<%= debug @cat %>
+<% @cat = Category.all %>
+<% @numberofcategories =@cat.count  %>
+<% @user = User.find(@uid)  %>
+<%= render :partial => 'layouts/user_profile' %>
+          <div class="inner">
+          
+            <div class="top_area">          
+              </div> <!-- top_area -->	             
+              <p>Welcome <%=@user.name%> Drag the topics into the order of importance to you.</p>
+               <div id="middle_area" > 
+               <div id = "cat" class="ui-widget-content">
+		    <h3 class="ui-widget-header">Issues</h3>
+		     <table>
+			 <tr><td>
+			<ul id ="column1" >
+			<% (0..5).each do |i| %>
+		 	 <% @sm_pic= @cat[i][:small_pic] 
+		 	    @CatName = @cat[i][:name] 
+		 	    @id = @cat[i][:id]%>
+   		          <li >
+  			    <%= link_to  image_tag( @sm_pic ) , '/surveys' %>  
+			    <%=  hidden_field_tag @id %>
+			     <%= @CatName %>
+			  </li> 
+			 <% end %>  
+			</ul>
+			  </td>
+     		           <td>
+		       <ul id ="column1"  >
+			   <% (6..11).each do |i| %>
+			   <% @sm_pic= @cat[i][:small_pic] 
+		 	    @CatName = @cat[i][:name] 
+		 	    @id = @cat[i][:id]%>
+   		          <li >
+			   <%= link_to image_tag(@sm_pic) %> 
+			   <%=  hidden_field_tag @id %>
+			   <%= @CatName %>
+	     		  </li>
+	     		
+			 <% end %>
+			</ul>
+			 </td>
+			   <td>
+			 <ul id ="column1"  >  
+			 <% (12..17).each do |i| %>
+			 <% @sm_pic= @cat[i][:small_pic] 
+		 	    @CatName = @cat[i][:name] 
+		 	    @id = @cat[i][:id]%>
+   		          <li >
+			       <%= link_to image_tag(@sm_pic) %> 
+			           <%=  hidden_field_tag @id %>
+			           <%= @CatName %>
+	     		  </li>
+	     		     
+			 <% end %>
+			  </ul>
+		         </td></tr>
+	         </table>
+	         </div id> <!-- cat>
+               </div> <!-- middle_area -->
+	  <div id="find">
+             <p>Where voters and politicians can discuss and learn about the issues for free with no advertising dollars getting in the way <br />
+             Subscribe to RSS feeds to stay in touch with their latest votes. </p>
+          </div>
+      
+    </div>   <!-- inner_area -->
+</div>       <!-- content -->
+

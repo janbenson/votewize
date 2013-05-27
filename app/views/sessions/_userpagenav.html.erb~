@@ -1,0 +1,20 @@
+<td id ="middle_area_column4" class = 'bullet_left'>
+<blockquote>
+<%@all_cats=["3", "4", "5", "6", "7", "8", "9","10", "11", "12", "13", "14", "15", "16","17","18","19","20"]
+ @up = Profile.find(@user.id)
+ @up_list = [ @up[:cat1], @up[:cat2], @up[:cat3],  @up[:cat4], @up[:cat5], @up[:cat6], @up[:cat7], @up[:cat8], @up[:cat9], @up[:cat10], @up[:cat11], @up[:cat12], @up[:cat13], @up[:cat14], @up[:cat15], @up[:cat16], @up[:cat17], @up[:cat18] ] 
+ @up_list = @up_list.reject(&:nil?) 
+ @up_list = @up_list.reject(&:empty?)
+ @remaining_priorities = @all_cats - @up_list %>
+     <h3>Your Priorities</h3>
+        <%  @up_list.each do |cat|
+               @c = Category.find(cat) %>
+              <%=link_to image_tag(@c.small_pic) , showsurvey_path(:id => @user.id, :data => cat) , :remote => true  %>
+        <% end %> 
+        <h3>Other Issues</h3>
+        <%  @remaining_priorities.each do |rem| 
+              @c = Category.find(rem) %>
+             <%=link_to image_tag(@c.small_pic) ,  showsurvey_path(:id => @user.id, :data => rem), :remote => true %>
+        <% end %>
+</blockquote>
+</td>

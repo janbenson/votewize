@@ -1,0 +1,12 @@
+<p>
+  <strong>Name:</strong>
+  <%=h @category.name %>
+</p>
+
+<p>
+
+  <strong>Respond to the statement:</strong>
+ </p>
+<ol>
+<%= render :partial => 'form' %>
+</ol>

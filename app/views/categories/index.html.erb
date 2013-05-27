@@ -1,0 +1,52 @@
+<div id="content" class="clearfix">
+ <%= render :partial => 'layouts/user_nav' %>
+ <%= javascript_include_tag 'jquery-1.3.2.min' %>
+ <%= javascript_include_tag 'prototype' %>
+ <%= javascript_include_tag 'frontpage'%>
+
+  <div class="inner">
+    <div class="top_area">          
+      <div class="just_for_a_border">
+      <div id="nav" >
+      <div class="left">
+		<div class="right">
+	           <ul class="tabs" id="bill_tab_select">
+		     <% @header_tabs.each do |tab| 
+		        @id = tab[:id]
+		        @title = tab[:title] %>
+		        <li id='<%= tab[:id] %>/'>
+                        <%= link_to "<span>#{tab[:title]}</span>".html_safe , params.merge(:id => tab[:id]) %>
+                        </li>
+		     <% end %>
+ 	          </ul>
+	       </div>
+	</div>
+       </div>
+
+       <div id ="questionlist">
+       <% @header_tabs.each do |tab| 
+		        @id = tab[:id]
+		        @style = tab[:style] %> 
+       <ul class="medium_question_list" id ="questions_selected" >
+         <div id='<%@id%>' style="<% @style %>" >
+         <% if @firsttime == "yes" then %>
+               <span><span id="popular_ul_title">"Welcome"</span>
+         <% else %>      
+              <span><span id="popular_ul_title"><%=@title %></span>
+              <% select_category(tab , tab[:id])  
+                render :partial => 'questions'  
+           end %>     
+        </span>
+        <% end %>
+        <% @firsttime = "no" %> 
+        </div>
+      </div><!-- just for a border -->
+     </div><!-- top_area -->	
+
+  <div id="find">
+    <p>Where voters and politicians can discuss and learn about the issues for free with no advertising dollars getting in the way <br />Subscribe to RSS feeds to stay in touch with their latest votes. </p>
+  </div>
+
+  
+  </div><!-- inner -->
+</div> <!-- content -->

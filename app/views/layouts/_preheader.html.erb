@@ -1,0 +1,21 @@
+<div id="header" class="clearfix">
+
+	<div class="bar">
+		<p class="project">
+		   VoteWise is a project of <a href="http://www.silentmonkeys.com/" target="_blank"> 
+		   Silent Monkeys Inc. Silent Monkeys is a Not-for-Profit 501(c)(3) organization. 
+		   We do not endorse any political party, candidate or legislation.</a>  
+	</div>
+	<%= "#{@page_title_prefix} - " if @page_title_prefix %><%= truncate(@page_title, :length => 200) %> <%= truncate(@head_title, :length => 200) if @head_title %>
+	
+	<div class="tagline">
+
+   	   <p>A non-profit, non-partisan public resource</p>
+		   <div id ="logon" >
+		   	<%= render :partial => 'formlogin' %>
+		   </div>
+      <div id="advanced" style="display: none;">
+ 
+      </div>
+
+</div> <!-- // header -->

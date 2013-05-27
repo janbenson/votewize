@@ -1,0 +1,14 @@
+<%= simple_form_for @answer do |f| %>
+ <%= f.input :agree,  label: 'I completely agree   ', :as => :radio  %>
+ <%= f.input :agree,  label: 'I agree              ', :as => :radio  %>
+ <%= f.input :agree,  label: 'I kind of agree      ', :as => :radio  %>
+ <%= f.input :agree,  label: 'I disagree           ', :as => :radio  %> 
+ <%= f.input :agree,  label: 'I completely disagree', :as => :radio  %> 
+ 
+<p class="fields">  This statement is:</p>
+<%= f.input :importance,  label: 'Incredibly important                            ', :as => :radio  %>
+<%= f.input :importance,  label: 'Kindof important                                ', :as => :radio  %>
+<%= f.input :importance,  label: 'A good thing to trade for something I care about', :as => :radio  %>
+
+ <%= f.input :comments, label: 'Incredibly important', as: :text %>
+<%end%>

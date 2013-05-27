@@ -1,0 +1,25 @@
+<div class="just_for_a_border">
+<div id="nav" >
+<div class="left">
+	<div class="right">
+	   <ul class="tabs" id="bill_tab_select">
+	     <% @cat.each do |tab| %>
+		<li id='<%= tab[:id] %>' >
+		<%= link_to "<span>#{tab[:title]}</span>" %>
+		</li>
+	     <% end %>
+	  </ul>
+       </div>
+</div>
+</div>
+<div id ="questionlist">
+<% @cat.each do |tab| 
+		@id = tab[:id]
+		@title = tab[:title] 
+<ul class="medium_question_list" id ="questions_selected" >
+ <div id='<%@id%>' style='display: none;' >
+      <span><span id="popular_ul_title">@title</span>
+</span>
+<% end %>
+</div>
+</div><!-- just for a border -->

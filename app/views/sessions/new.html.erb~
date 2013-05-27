@@ -1,0 +1,20 @@
+<%= include_gon %>
+<div id="content" class="clearfix">
+<div id="userpagenav" >
+<%= render :partial => 'layouts/user_profile' %>
+</div >
+          <div class="inner">
+            <div class="top_area"> 
+              <%= render :partial => 'formlogin' %>
+            </div> <!-- top_area -->	             
+               <div id="middle_area" > 
+                <table id "middle_area">
+                <%= render :partial => 'middle_user' %>
+                </table id>
+               </div> 
+	      <div id="find">
+             <p>Where voters and politicians can discuss and learn about the issues for free with no advertising dollars getting in the way <br />
+             Subscribe to RSS feeds to stay in touch with their latest votes. </p>
+          </div>
+    </div>   <!-- inner_area -->
+</div>       <!-- content -->

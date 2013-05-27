@@ -1,0 +1,33 @@
+<div id='questionarea1'>
+    <%=@category.name %> respond to this statement
+    <div id='questionarea'>
+     <p> <%=@current_question %></p>
+       
+       <div id = 'hidden_field_usr' >
+        <%=hidden_field_tag :user_id, {:value => params[:id]}  %>
+       </div>
+	<div id = 'hidden_field_question' >
+	<%=hidden_field_tag :questionid, {:value => @current_question_id} %>
+	</div>
+
+	<div id= 'inputfields'>
+	 <% answer_fields = @answer %>
+	<ul><%= radio_button(answer_fields, :agree, 5) %> I completely agree</ul>
+	<ul><%= radio_button(answer_fields, :agree, 4) %> I agree </ul>
+	<ul><%= radio_button(answer_fields, :agree, 3) %> I kind of agree</ul>
+	<ul><%= radio_button(answer_fields, :agree, 2) %> I disagree</ul>
+	<ul><%= radio_button(answer_fields, :agree, 1) %> I completely disagree</ul>
+	 <ul>The statement is:</ul> 
+	<ul>  <%= radio_button(answer_fields, :importance, 3) %> Incredibly important
+	  <%= radio_button(answer_fields, :importance, 2) %> Kind of importance </ul>
+	  <%= radio_button(answer_fields, :importance, 1) %> A good thing to trade for something I care about
+	</ul>
+	</div>
+
+	<div>
+	Comments:
+	      <ul><%= text_area_tag :comments  %> <ul>
+	</div>
+     </div>
+<%@data = { :category => @category.id ,:questionid => @current_question_id  } %>
+</div>

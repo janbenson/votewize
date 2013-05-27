@@ -1,0 +1,18 @@
+             <table>
+             <tr>
+               <th id = 'middle_area-left'>
+               <p>Spenser here is where "your background text" would be </p> 
+               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus erat urna, pharetra id vulputate in, tristique et nibh. Quisque sed dui et libero porttitor congue. Pellentesque tellus libero, rhoncus eu mattis a, euismod vel leo. Donec molestie varius blandit. Aliquam suscipit ultricies nisi, sit amet ornare mauris adipiscing non. Fusce sodales arcu id velit pharetra et egestas turpis volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque ut dui eros. Praesent sit amet aliquet metus. Quisque leo leo, dignissim vitae commodo quis, dignissim vitae diam
+               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus erat urna, pharetra id vulputate in, tristique et nibh. Quisque sed dui et libero porttitor congue. Pellentesque tellus libero, rhoncus eu mattis a, euismod vel leo. Donec molestie varius blandit. Aliquam suscipit ultricies nisi, sit amet ornare mauris adipiscing non. Fusce sodales arcu id velit pharetra et egestas turpis volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque ut dui eros. Praesent sit amet aliquet metus. Quisque leo leo, dignissim vitae commodo quis, dignissim vitae diam
+               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus erat urna, pharetra id vulputate in, tristique et nibh. Quisque sed dui et libero porttitor congue. Pellentesque tellus libero, rhoncus eu mattis a, euismod vel leo. Donec molestie varius blandit. Aliquam suscipit ultricies nisi, sit amet ornare mauris adipiscing non. Fusce sodales arcu id velit pharetra et egestas turpis volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque ut dui eros. Praesent sit amet aliquet metus. Quisque leo leo, dignissim vitae commodo quis, dignissim vitae diam
+               </th>
+               <th id = 'middle_area-center'>
+               <%= render :partial => 'form' %>
+               </th>
+               <th id = 'middle_area-right'>
+               <p>And here are is where your metric data would land</p> 
+               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus erat urna, pharetra id vulputate in, tristique et nibh. Quisque sed dui et libero porttitor congue. Pellentesque tellus libero, rhoncus eu mattis a, euismod vel leo. Donec molestie varius blandit. Aliquam suscipit ultricies nisi, sit amet ornare mauris adipiscing non. Fusce sodales arcu id velit pharetra et egestas turpis volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque ut dui eros. Praesent sit amet aliquet metus. Quisque leo leo, dignissim vitae commodo quis, dignissim vitae diam
+               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus erat urna, pharetra id vulputate in, tristique et nibh. Quisque sed dui et libero porttitor congue. Pellentesque tellus libero, rhoncus eu mattis a, euismod vel leo. Donec molestie varius blandit. Aliquam suscipit ultricies nisi, sit amet ornare mauris adipiscing non. Fusce sodales arcu id velit pharetra et egestas turpis volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque ut dui eros. Praesent sit amet aliquet metus. Quisque leo leo, dignissim vitae commodo quis, dignissim vitae diam
+              </th>
+               </tr>
+               </table>

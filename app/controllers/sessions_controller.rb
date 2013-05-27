@@ -1,0 +1,155 @@
+class SessionsController < ApplicationController
+	
+     layout "frontpage"
+     respond_to :json
+
+ def new
+ 	 @logged_in = false 
+         @user  = User.new
+         current_user = @user
+         @title = "Sign in please...."
+end
+
+
+def create
+      @user =  User.find_by_email(params[:email])
+      gon.your_object = @user
+      @logged_in = true 
+      respond_to do |format|
+             format.js
+     end    	   
+end
+
+def shownewuser
+    @logged_in = 'yes'
+    @title = "New UserSigned in"
+    @uid = params[:id]
+    gon.your_object = User.find(params[:id])
+  end
+
+  def show
+    @logged_in = 'yes'
+    @title = "Signed in"
+    gon.your_object = User.find_by_email(params[:email])
+    #TODO create error capture
+    #But for right now just redirect
+  end
+
+  def signedin
+    @logged_in = 'yes'
+    @title = "Signed in"
+    gon.your_object = User.find_by_email(params[:email])
+    #TODO create error capture
+    #But for right now just redirect
+  end
+def backhome
+	@user  = User.find(params[:id])
+           respond_to do |format|
+             format.js
+           end 
+end
+  def showsurvey
+  	  @title = "Survey for"
+  	   @category = Category.find(params[:data])
+  	   @background = Background.find(@category.background_id)
+  	   @back_content = @background.back_content
+           @questions = @category.questions.find_all_by_category_id(params[:data])
+           @current_question_rec =  @questions.first
+           @current_question = @current_question_rec.question
+           @current_question_id = @current_question_rec.question_id
+           @answer = @category.questions.find(@current_question_id).answers.find_by_user_id(params[:id])
+           @all_cats=["3", "4", "5", "6", "7", "8", "9","10", "11", "12", "13", "14", "15", "16","17","18","19","20"]
+           @up = Profile.find(params[:id])
+           @up_list = [ @up[:cat1], @up[:cat2], @up[:cat3],  @up[:cat4], @up[:cat5], @up[:cat6], @up[:cat7], @up[:cat8], @up[:cat9], @up[:cat10], @up[:cat11], @up[:cat12], @up[:cat13], @up[:cat14], @up[:cat15], @up[:cat16], @up[:cat17], @up[:cat18] ] 
+           @up_list = @up_list.reject(&:nil?)
+           @remaining_priorities = @all_cats - @up_list
+           @cat = Category.all  
+   	   respond_to do |format|
+ 	     format.html { redirect_to @category }
+             format.js
+     end    	   
+  end
+  
+  def expressyourself
+     @user = User.find(params[:id])	  
+     @all_cats=["3", "4", "5", "6", "7", "8", "9","10", "11", "12", "13", "14", "15", "16","17","18","19","20"]
+     @up = Profile.find(params[:id])
+     @up_list = [ @up[:cat1], @up[:cat2], @up[:cat3],  @up[:cat4], @up[:cat5], @up[:cat6], @up[:cat7], @up[:cat8], @up[:cat9], @up[:cat10], @up[:cat11], @up[:cat12], @up[:cat13], @up[:cat14], @up[:cat15], @up[:cat16], @up[:cat17], @up[:cat18] ] 
+     @up_list = @up_list.reject(&:nil?)
+     @remaining_priorities = @all_cats - @up_list
+     @cat = Category.all          
+     respond_to do |format|
+             format.js
+     end    	   
+  end
+  
+  def discuss
+     @all_cats=["3", "4", "5", "6", "7", "8", "9","10", "11", "12", "13", "14", "15", "16","17","18","19","20"]
+     @up = Profile.find(params[:id])
+     @up_list = [ @up[:cat1], @up[:cat2], @up[:cat3],  @up[:cat4], @up[:cat5], @up[:cat6], @up[:cat7], @up[:cat8], @up[:cat9], @up[:cat10], @up[:cat11], @up[:cat12], @up[:cat13], @up[:cat14], @up[:cat15], @up[:cat16], @up[:cat17], @up[:cat18] ] 
+     @up_list = @up_list.reject(&:nil?)
+     @remaining_priorities = @all_cats - @up_list
+     @cat = Category.all
+     @user = User.find(params[:id])
+     @micropost = @user.microposts.new
+     @feed_items = @user.feed.paginate(:page => params[:page], :per_page => 10)
+     respond_to do |format|
+ 	     format.html { redirect_to @category }
+             format.js
+     end    	   
+  end
+  
+  
+def updateanswers
+     @parms = params[:data] 
+     @category = Category.find(@parms[:category])
+     @answer=@category.questions.find(@parms[:questionid]).answers.find_by_user_id(params[:id])
+     if @answer.nil? then
+     	    @answer = Answer.new
+	    @answer.question_id =@parms[:questionid]
+	    @answer.user_id = params[:id]
+	    @up = Profile.find(params[:id])
+            @up_list = [ @up[:cat1], @up[:cat2], @up[:cat3],  @up[:cat4], @up[:cat5], @up[:cat6], @up[:cat7], @up[:cat8], @up[:cat9], @up[:cat10], @up[:cat11], @up[:cat12], @up[:cat13], @up[:cat14], @up[:cat15], @up[:cat16], @up[:cat17], @up[:cat18] ]
+            (1..18).each do |p|
+            	   if @up_list[p].nil?
+            	   	   @up.update_attribute('cat'<< p.to_s, @category.id)
+            	   	   @up.save
+            	    	    break
+            	    end	    
+            end
+      end	    
+
+     if  @answer.save
+     	     @counter = (@parms[:questionid]).to_i
+     	     @counter = @counter+1
+     	     @current_question_rec = @category.questions.find_by_question_id(@counter)
+     	     @current_question = @current_question_rec.question 
+     	     @current_question_id = @counter
+     	     @answer = @category.questions.find(@current_question_id).answers.find_by_user_id(params[:id])
+ 	 respond_to do |format|
+ 	     format.html { redirect_to @category }
+             format.js 
+         end 
+     end
+ end
+  
+  def updateProfile
+   @profile= Profile.find_by_id(params[:uid]) 
+   @profile.update_attribute(params[:userpri], params[:categoryValue])
+   @category_id = params[:categoryValue].to_i
+   @category = Category.find(@category_id)
+   @question = @category.questions.find_all
+   @question.each do |question| 
+	    @answer = Answer.new
+	    @answer.question_id = question.id
+	    @answer.user_id = params[:uid]  
+	    @answer.save
+    end
+  end
+  def destroy
+    sign_out
+    redirect_to root_path
+  end 
+  	  
+  
+end

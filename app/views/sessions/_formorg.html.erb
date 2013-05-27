@@ -1,0 +1,45 @@
+<p>
+  <strong>Name:</strong>
+  <%=@category.name %>
+</p>
+
+<ol>
+
+<ul id='questionarea'>
+<%=@current_question %>
+</ul>
+<div id = 'hidden_field_usr' >
+<%=hidden_field_tag :user_id, {:value => params[:id]}  %>
+</div>
+<div id = 'hidden_field_question' >
+<%=hidden_field_tag :question_id, {:value => @current_question_id} %>
+</div>
+		<ul id= 'answerarea'>
+		<%= radio_button_tag (:agree, 5) %>
+		<%= label_tag(:agree_5, "I completely agree ") %>
+		<%= radio_button_tag(:agree , 4) %>
+		<%= label_tag(:agree_4, "I agree ") %>
+		<%= radio_button_tag(:agree , 3) %>
+		<%= label_tag(:agree_3, "I kind of agree ") %>
+		<%= radio_button_tag(:agree , 2) %>
+		<%= label_tag(:agree_2, "I disagree ") %>
+		<%= radio_button_tag(:agree , 1) %>
+		<%= label_tag(:agree_1, "I completly disagree ") %>
+		  This statement is:
+		<%= radio_button_tag(:importance , 3) %>
+		<%= label_tag(:importance_3, "Incredibly important ") %>
+		<%= radio_button_tag(:importance , 2) %>
+		<%= label_tag(:importance_2, "Kind of important") %>
+		<%= radio_button_tag(:importance , 3) %>
+		<%= label_tag(:importance_1, "A good thing to trade for something I care about ") %>
+</ul>
+<ul>
+  <li id ='comments'>Comments:
+       <%= text_field_tag :comments %>
+  </li>
+</ul>
+	       
+<ul>
+	<div id = "qsubmit" > <%= submit_tag %> </div>
+</ul>
+</ol>

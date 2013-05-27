@@ -1,0 +1,5 @@
+$('#logon').html(  "<%= j render :partial =>  "loggedin" %>" );
+$('#userpagenav').html( "<%= j render :partial =>  "userpagenav" %>" );
+$('#middle_area_col1').html( "<%= j render :partial =>  "expressyourself" %>" );
+$('#middle_area_col3').html( "<%= j render :partial =>  "discuss" %>" );
+$('#middle_area_col4').html( "<%= j render :partial =>  "remaining" %>" );

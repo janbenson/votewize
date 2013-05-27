@@ -1,0 +1,46 @@
+<p>
+  <strong>Name:</strong>
+  <%=h @category.name %>
+</p>
+
+<p>
+
+  <strong>Respond to the statement:</strong>
+ </p>
+<ol>
+<%= javascript_include_tag 'jQuery,application' %>
+ <%= javascript_include_tag 'jquery-ui.min' %>
+ <%= javascript_include_tag 'onSubmit' %>
+
+<% suid = nil %>
+<%@id=@category.id %>
+<%z =0 %>
+<%= form_for @category , :remote => true, :html => {:method => :put,:onsubmit => 'onSubmit(@id,@answer.survey_id,@answer.user_id ); return false;'}  do |f| %>
+<%=f.hidden_field :id %>
+  <%= f.fields_for :survey  do |q| %>
+        <ul> 
+         <%=h @category.surveys[z].question %>
+         <% suid =  @category.surveys[z].survey_id %>
+         <% z =+1 %>
+        <%= f.fields_for :answer do |a| %>
+        <%= a.hidden_field :survey_id, value: suid %>
+        <%=a.hidden_field :user_id, value: params[:id]%>
+        
+            <li><%= a.check_box :agree ,value: 5 %>  I completely agree    </li>
+	    <li><%= a.check_box :agree ,value: 4 %>  I agree  </li>
+	    <li><%= a.check_box :agree ,value: 3 %>  I kind of agree  </li>
+	    <li><%= a.check_box :agree ,value: 2 %>  I disagree  </li>
+	    <li><%= a.check_box :agree ,value: 1 %>  I completely disagree  </li>
+ 	<li class="fields">  This statement is:</li>
+	    <li><%= a.check_box :importance ,value: 3%>    Incredibly important                            </li>
+		<li><%= a.check_box :importance,value: 2 %> Kind of important                               </li>
+	       <li><%= a.check_box :importance ,value: 1%> A good thing to trade for something I care about</li>
+	       <li>Comments:</li>
+	       <li><%= a.text_field :comments %>
+          </ul>   
+          	 
+	<%end%>
+	<%= q.button :submit %>
+<% end %>
+<% end %>
+</ol>

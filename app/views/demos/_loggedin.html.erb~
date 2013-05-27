@@ -1,0 +1,6 @@
+   <div heading class="group">
+   <%= link_to image_tag('/assets/Expressyourself_sm.png') ,  'sessions/' + (@user.id).to_s + '/Expressyourself', :remote => true, :data => @user.id  %>
+   <%= link_to image_tag('/assets/Learn_sm.png') ,  'sessions/' + (@user.id).to_s + '/Learn', :remote => true, :data => @user.id  %>
+   <%= link_to image_tag('/assets/Discuss_sm.png') ,  'sessions/' + (@user.id).to_s + '/discuss', :remote => true, :data => @user.id  %>   
+  </div>
+

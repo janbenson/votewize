@@ -1,0 +1,20 @@
+<%= form_for @category.survey do |f| %>
+        <ul>  
+        <%=f.text_area.name %>  
+         
+        <%= f.fields_for :answer do |answer| %>
+             <li><%= answer.check_box :agree %>  I completely agree     </li>
+	     <li><%= answer.check_box :agree %>  I agree   </li>
+	     <li><%= answer.check_box :agree %>  I kind of agree   </li>
+	     <li><%= answer.check_box :agree %>  I disagree   </li>
+	     <li><%= answer.check_box :agree %>  I completely disagree   </li>
+ 	<li class="fields">  This statement is:</li>
+	     <li><%= answer.check_box :importance %>    Incredibly important                             </li>
+		<li><%= answer.check_box :importance %> Kind of important                                </li>
+	        <li><%= answer.check_box :importance %> A good thing to trade for something I care about </li>
+	        <li>Comments:</li>
+	        <li><%= answer.text_field :comments %>
+          </ul>   
+	<%end%>
+	 <%= f.button :submit %>
+<% end %>

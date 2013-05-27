@@ -1,0 +1,20 @@
+<td id ="middle_area_col4" class = 'round'>
+ <%@answer_count = Answer.answer_count
+      @remain_answers_to_comment = 10 - @answer_count
+      @remain_answers_to_resume = 20 - @answer_count
+      @remain_answers_to_polling = 30 - @answer_count
+      @remain_answers_to_forum = 40 - @answer_count %>
+<p>You have answered <span style="color:yellow;"> <%=@answer_count%></span>.... question(s)</p>
+<p><span style="color:yellow;"><%=@remain_answers_to_comment%></span> more questions and we'll post your added comments</p>
+<p><span style="color:yellow;"><%=@remain_answers_to_resume%></span>    more questions and you can post a resume and statement including a link to your website</p>
+<p><span style="color:yellow;"><%=@remain_answers_to_polling %></span>  more questions and you can post a resume and statement including a link to your website</p>
+<p><span style="color:yellow;"><%=@remain_answers_to_forum%></span> more questions and you can post a resume and statement including a link to your website</p>
+<div class="line-separator"></div>
+<p>###people have answered this question</p> 
+<p>###Voters in your region have answered this question</p>
+<p>###Politicians in your area have answered this question </p>
+<p>###people in your region said their answer to this statement was incredibly important</p>
+<p>###people have left ###comments in the users forum on this subject </p>
+<p>#people have left #comment in the user forum on this subject in your area</p>
+
+</td>

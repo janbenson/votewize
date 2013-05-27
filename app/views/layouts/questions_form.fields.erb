@@ -1,0 +1,4 @@
+     = s.input :question_string, :label => "Question: "
+     = s.input :question_type, :as => :radio, :collection => [1,2,3,4], :label => "Question Type:"
+     = s.hidden_field :_destroy
+     = link_to_function  "Remove Question", "remove_fields(this)"

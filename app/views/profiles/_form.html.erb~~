@@ -1,0 +1,13 @@
+<% @category_id = @selectedcategory.id
+@surveys = Survey.find_by_category_id(@category_id)
+ %>
+<% @selectedcategory %>
+
+<%= simple_form_for @surveys do |f| %>
+<% @surveyqs = @surveys[f]
+   @answer = @surveys.answers.build
+%>
+  <%= f.label :question %>
+  <%= render "answer_fields" %>
+  <%= f.button :submit %>
+<% end %>

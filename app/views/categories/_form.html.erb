@@ -1,0 +1,53 @@
+<p>
+  <strong>Name:</strong>
+  <%=h @category.name %>
+</p>
+
+<ol>
+
+<%= form_for( @questions,  :url => updateanswers_path(@questions), :html => { :method =>:put }, :remote => true)  do |f| %>
+
+<ul id='questionarea'>
+<%=@current_question %>
+</ul>
+<div id = 'hidden_field_usr' >
+<%=f.hidden_field :user_id, {:value => params[:id]}  %>
+</div>
+<div id = 'hidden_field_question' >
+<%=f.hidden_field :question_id, {:value => @current_question_id} %>
+</div>
+<%=f.fields_for @answer do |a| %>
+         
+		<ul id= 'answerarea'>
+		<%= a.radio_button(:agree , 5) %>
+		<%= a.label(:agree_5, "I completely agree ") %>
+		<%= a.radio_button(:agree , 4) %>
+		<%= a.label(:agree_4, "I agree ") %>
+		<%= a.radio_button(:agree , 3) %>
+		<%= a.label(:agree_3, "I kind of agree ") %>
+		<%= a.radio_button(:agree , 2) %>
+		<%= a.label(:agree_2, "I disagree ") %>
+		<%= a.radio_button(:agree , 1) %>
+		<%= a.label(:agree_1, "I completly disagree ") %>
+	
+		  This statement is:
+	
+		<%= a.radio_button(:importance , 3) %>
+		<%= a.label(:importance_3, "Incredibly important ") %>
+		<%= a.radio_button(:importance , 2) %>
+		<%= a.label(:importance_2, "Kind of important") %>
+		<%= a.radio_button(:importance , 3) %>
+		<%= a.label(:importance_1, "A good thing to trade for something I care about ") %>
+</ul>
+<ul>
+  <li id ='comments'>Comments:
+       <%= a.text_field :comments %>
+  </li>
+</ul>
+	       
+<ul>
+	<%end %>
+	<div id = "qsubmit" > <%= f.submit %> </div>
+<%end %>
+</ul>
+</ol>

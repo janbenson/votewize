@@ -1,0 +1,228 @@
+/* Sign up buttons */
+a.signup_button_voter {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  width: 180px;
+  height: 160px;
+  color: #006400;
+  background:  url('Im_a_voter.png');
+  font-size: 150%;
+  font-weight: bold;
+  padding: 20px;
+  float: left;
+}
+
+
+a.signup_button_politician {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  width: 180px;
+  height: 160px;
+  color: #006400;
+  background:   url('Im_a_politician.png');
+  font-size: 150%;
+  font-weight: bold;
+  padding: 20px;
+  float: right;
+}
+
+
+#heading{
+padding: 15px;
+background: 000000;
+_background:000000;
+height: 45px !important; 
+overflow: hidden;
+}
+
+#heading p{
+font-size: 12px !important;
+}
+
+ .top_area{
+background: left bottom no-repeat;
+}
+
+
+.middle_area{
+font-weight: normal;
+height: 564px;
+}
+
+
+
+.enter_zip{
+background: url(forms.png) left -30px no-repeat;
+   _background: url(forms.gif) left -30px no-repeat;
+width: 123px !important;
+border: none;
+text-align: center;
+padding: 7px 9px;
+}
+
+#find input{
+float: left;
+}
+
+hr{
+display: none;
+}
+
+#find p{
+font-size: 14px;
+float: left;
+padding: 0px 0 0 14px;
+width: 430px;
+line-height: 1.5em;
+}
+
+
+#find h2{
+padding-right: 20px;
+float: left;
+font-size: 13px;
+line-height: 1.3em;
+width: 100px;
+}
+
+#find_rep input{
+margin-top: 3px;
+}
+
+.enter_zip{
+width: 130px;
+margin-right: 20px;
+}
+
+.clear{
+clear: both;
+height: 0px;
+}
+
+.login_button{
+margin-right: 10px;
+}
+
+p.topline{
+float: left;
+width: 100%;
+}
+
+
+p.topline .img_a{
+min-height: 100px;
+float: left !important;
+
+}
+
+
+p.topline .med_button{
+float: right;
+clear: none !important;
+}
+
+
+p.topline .med_button span{
+padding-top: 8px;
+padding-bottom: 6px;
+}
+
+
+#userpri {
+background-color: black;
+}
+
+/* Priorities */
+
+#pri {display: inline; 
+  list-style-type:none;
+
+}
+#pri ol { display: inline; 
+  list-style-type:none;
+
+   }
+
+
+#pri th 
+{ 
+  width: 60px;
+  height:60px; 
+
+   }
+#pri ul li {
+  display: inline; 
+  list-style-type:none;
+  padding: 6px 9px 5px 15px;
+  font-size: 15px;
+}  
+
+#pri ul li a {
+display: inline; 
+  list-style-type:none;
+  padding: 6px 9px 5px 15px;
+  font-size: 15px;
+}
+
+ 
+#pri ul li a:visited {
+display: inline; 
+  list-style-type:none;
+  padding: 6px 9px 5px 15px;
+  font-size: 15px;
+}
+
+#pri ul li a:hover {
+display: inline; 
+  list-style-type:none;
+  padding: 6px 9px 5px 15px;
+  font-size: 15px;
+}
+
+
+.debug { color: #09c;}
+
+
+
+/* Categories */
+
+#drag {
+  margin-top: 1em;
+}
+
+#draggable ul li a {
+display: inline; 
+  list-style-type:none;
+  padding: 6px 9px 5px 15px;
+  font-size: 15px;
+}
+#inputfields {
+ margin: 0;
+    width:500px;	
+    float: left;
+    padding: 0;
+}
+#inputfields table{
+width:500px;	
+}
+
+/*importance */
+ #importance {
+    margin: 0;
+    width:500px;	
+    float: left;
+    padding: 0;
+ }
+
+/*agree */
+ #agree {
+    margin: 0;
+    width:500px;	
+    float: left;
+    padding: 0;
+}
+ #format { margin-top: 2em; }

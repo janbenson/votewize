@@ -1,0 +1,17 @@
+ <%= javascript_include_tag 'jquery-1.3.2.min' %>
+ <%= javascript_include_tag 'prototype' %>
+ <%= javascript_include_tag 'jClite' %>
+ <%= javascript_include_tag 'frontpage'%>
+ <% if @logged_in %>  
+<div class="anyClass">
+ <ul class="user_nav">
+    <h3>Issues</h3>
+    <% (1..4).each do |i| %>
+   
+		<li>
+		<%= link_to i %>
+		</li>
+	     <% end %>
+    </ul>
+</div>
+<% end %> 

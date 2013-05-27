@@ -1,0 +1,56 @@
+<%= javascript_include_tag 'application', 'form' %>
+
+
+<p>
+  <strong>Name:</strong>
+  <%=h @category.name %>
+</p>
+
+<ol>
+
+ <% suid = nil %>
+<%@id=@category.id %>
+
+<%= form_for @category, remote: true  do |f| %>
+
+<ul id='questionarea'>
+<%=@category.surveys.first.question %>
+</ul>
+<%=hidden_field_tag(:user_id, params[:id]) %>
+<%=f.fields_for @category.surveys do |a| %>
+         <%= a.hidden_field :survey_id %>
+		<ul id= 'answerarea'>
+		<%= radio_button_tag(:agree , 5) %>
+		<%= label_tag(:agree_5, "I completely agree ") %>
+		<%= radio_button_tag(:agree , 4) %>
+		<%= label_tag(:agree_4, "I agree ") %>
+		<%= radio_button_tag(:agree , 3) %>
+		<%= label_tag(:agree_3, "I kind of agree ") %>
+		<%= radio_button_tag(:agree , 2) %>
+		<%= label_tag(:agree_2, "I disagree ") %>
+		<%= radio_button_tag(:agree , 1) %>
+		<%= label_tag(:agree_1, "I completly disagree ") %>
+	
+		  This statement is:
+	
+		<%= radio_button_tag(:importance , 3) %>
+		<%= label_tag(:importance_3, "Incredibly important ") %>
+		<%= radio_button_tag(:importance , 2) %>
+		<%= label_tag(:importance_2, "Kind of important") %>
+		<%= radio_button_tag(:importance , 3) %>
+		<%= label_tag(:importance_1, "A good thing to trade for something I care about ") %>
+</ul>
+<ul>
+  <li id ='comments'>Comments:
+       <%= text_field_tag :comments %>
+  </li>
+</ul>
+	       
+<ul>
+
+	
+	<%end %>
+	<%= f.submit %>
+<%end %>
+</ul>
+</ol>

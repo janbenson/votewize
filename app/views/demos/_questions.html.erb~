@@ -1,0 +1,9 @@
+ <table>
+ <%@questions.each do |qs| %>
+ <tr>
+   <td> <%= qs[:question_id] %> </td>
+   <td> <%= qs[:question] %> </td>
+</tr>
+<% end %>
+</table>
+

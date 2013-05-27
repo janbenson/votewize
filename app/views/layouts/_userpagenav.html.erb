@@ -1,0 +1,26 @@
+<%if params[:id] = nil then
+@up = Profile.find_by_id(@answer.user_id)
+else
+  @up = Profile.find_by_id(params[:id])
+end %>  
+<%  @up_list = [@up.cat1,@up.cat2,@up.cat3,@up.cat4,@up.cat5,@up.cat6,@up.cat7,@up.cat8,@up.cat9,@up.cat10,@up.cat11,@up.cat12,@up.cat13,@up.cat14,@up.cat15,@up.cat16,@up.cat17,@up.cat18]
+%>
+<div id = pri >
+ <ul   class="pri">
+    <h3>Priorities</h3>
+      <th id = "pri">
+        <%  (0..17).each do |cat| %>
+          <% if @up_list[cat] != nil then
+               @c = Category.find_by_id(@up_list[cat]) 
+               image_tag(@c.small_pic)
+               else
+               image_tag(@c.not_selected)	       
+               
+           end 
+           end %>     
+      </th>
+ </ul>
+ </div>
+ 
+ 
+

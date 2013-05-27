@@ -1,0 +1,1 @@
+$('#middle_area_column1).html( "<%= j render :partial => "middle_existingusercol1" %> ");

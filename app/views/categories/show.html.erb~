@@ -1,0 +1,29 @@
+<div id="content" class="clearfix">
+<%= render :partial => 'layouts/user_profile' %>
+
+          <div class="inner">
+          
+            <div class="top_area">          
+              </div> <!-- top_area -->	             
+              <p>Welcome this will be the survey page for user after clicking on a priority icon.</p>
+               <div id="middle_area" > 
+             <table><tr>
+               <div id="middle_area-left" >
+               <p>Welcome this will be the survey page for user after clicking on a priority icon.</p>
+               </div>
+               <div id="middle_area-center" >
+               <%= render :partial => 'form', :locals => { :z => 0 } %>
+               </div>
+               <div id="middle_area-right" >
+               <p>Welcome this will be the survey page for user after clicking on a priority icon.</p>
+               </div>
+               </tr>
+               </table>
+               </div> <!-- middle_area -->
+	  <div id="find">
+             <p>Where voters and politicians can discuss and learn about the issues for free with no advertising dollars getting in the way <br />
+             Subscribe to RSS feeds to stay in touch with their latest votes. </p>
+          </div>
+      
+    </div>   <!-- inner_area -->
+</div>       <!-- content -->

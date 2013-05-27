@@ -1,0 +1,23 @@
+<% @categories = Category.find_by_id(:data)
+   @surveys = Survey.find_by_cat_id(:data)
+  (0..5).each do |q|
+   @answers = 4.times {@surveys[q].answers.build }
+ end %>
+
+<p>
+  <strong>Name:</strong>
+  <%=h @category.name %>
+</p>
+
+<ol>
+<% for survey in @category.surveys %>
+  <li>
+    <%=h survey.question %>
+    <ul>
+    <% for answer in survey.answers %>
+      <li><%=h answer.content %></li>
+    <% end %>
+    </ul>
+  </li>
+<% end %>
+</ol>

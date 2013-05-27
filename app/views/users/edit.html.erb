@@ -1,0 +1,12 @@
+<div id="content" class="clearfix">
+ <%= render :partial => 'layouts/user_nav' %>
+ 
+
+  <div class="inner">
+    <div class="top_area">          
+<h1>Editing user</h1>
+
+<%= render :partial =>'form' %>
+
+<%= link_to 'Show', @user %> |
+<%= link_to 'Back', users_path %>

@@ -1,0 +1,27 @@
+<div class="just_for_a_border">
+<div id="nav" >
+<div class="left">
+	<div class="right">
+	   <ul class="tabs" id="bill_tab_select">
+	     <% @header_tabs.each do |tab| 
+		@id = tab[:id]
+		@title = tab[:title] %>
+		<li id='<%= tab[:id] %>/'>
+		<%= link_to "<span>#{tab[:title]}</span>".html_safe , params.merge(:id => tab[:id]) %>
+		</li>
+	     <% end %>
+	  </ul>
+       </div>
+</div>
+</div>
+<div id ="questionlist">
+<% @header_tabs.each do |tab| 
+		@id = tab[:id]
+		@style = tab[:style] %> 
+<ul class="medium_question_list" id ="questions_selected" >
+ <div id='<%@id%>' style="<% @style %>" >
+      <span><span id="popular_ul_title"><%=@title %></span>
+</span>
+<% end %>
+</div>
+</div><!-- just for a border -->

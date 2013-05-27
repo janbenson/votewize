@@ -1,0 +1,15 @@
+<tr>
+<td id ="middle_area-col1" >
+   <%= link_to  "Express Yourself" , 'expressyourself', :remote => true, :data => @id , :id => 'expressyourself' %>
+   <%= link_to "Express Yourself" , 'sessions/'+ (@user.id).to_s + '/expressyourself', :remote => true, :data => @user.id , id => 'expressyourself' %>
+</td>
+<td id ="middle_area-col2"  >
+   <%= link_to  "Learn",  sessions_path, :remote => true, :data => @id , :id => 'showSurvey'  %>
+</td>
+<td id ="middle_area-col3"  >
+   <%= link_to "Discuss" , sessions_path,  :remote => true, :data => @id , :id => 'showSurvey'  %>
+</td>
+<td id ="middle_area-col4" >  
+   <%= link_to "Your progress", sessions_path,  :remote => true, :data => @id , :id => 'showSurvey'  %>
+</td>
+</tr>

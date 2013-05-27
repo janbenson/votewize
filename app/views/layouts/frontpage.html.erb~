@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  <head>
+  <%= stylesheet_link_tag "application" %>
+   <%= javascript_include_tag 'application' %>
+    <%= render :partial => 'shared/analytics_head' %>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-script-type" content="text/javascript" />
+    <meta name="description" content="Where voters and politicians can discuss and learn about the issues for free with no advertising dollars getting in the way" />
+    <% if @meta_keywords %>
+      <meta name="keywords" content="<%= @meta_keywords %>" />
+    <% end %>
+
+    <title>VoteWize -  Where voters and politicians in Area -can discuss and learn about the issues for free with no advertising dollars getting in the way</title>
+  
+
+    <%= csrf_meta_tag %>
+      
+  </head>
+
+  <body id="home">
+    
+
+    <div id="wrapper">
+   <% cache("layout_header", :expires_in => 3.hours) do %> 
+    <%= render :partial => 'layouts/header' %>
+    <% end %>
+   <section class="round">
+        <% flash.each do |key, value| %>
+          <div class="flash <%= key %>"><%= value %></div>
+        <% end %>
+
+      <%= yield %>
+
+       </div>
+
+      <%= render :partial => 'shared/analytics_foot' %>
+  </body>
+</html>

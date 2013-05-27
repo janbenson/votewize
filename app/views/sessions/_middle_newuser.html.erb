@@ -1,0 +1,42 @@
+                              <div id = "draggable" class="ui-widget-content">
+		    <h3 class="ui-widget-header">Issues</h3>
+		     <table>
+			 <tr>
+			  <td>
+			  <ul id ="column1" >
+			  <% (0..5).each do |i| %>
+		 	  <% @sm_pic= @cat[i][:small_pic] 
+		 	    @CatName = @cat[i][:name] 
+		 	    @id = @cat[i][:id]%>
+   		           <li id="draggable">
+ 			     <%= link_to image_tag(@sm_pic, :border => 0), showsurvey_path({:data => @id}), :remote => true, :data => @id , :id => 'showSurvey'  %>
+			  </li> 
+			 <% end %>  
+			</ul>
+			  </td>
+     		           <td>
+		       <ul id ="column1"  >
+			   <% (6..11).each do |i| %>
+			   <% @sm_pic= @cat[i][:small_pic] 
+		 	    @CatName = @cat[i][:name] 
+		 	    @id = @cat[i][:id]%>
+   		            <li id="draggable">
+  			     <%= link_to image_tag(@sm_pic, :border => 0), showsurvey_path({:data => @id}), :remote => true, :data => @id , :id => 'showSurvey'  %>
+                             </li>
+	     		  <% end %>
+			</ul>
+			 </td>
+			   <td>
+			 <ul id ="column1"  >  
+			 <% (12..17).each do |i| %>
+			 <% @sm_pic= @cat[i][:small_pic] 
+		 	    @CatName = @cat[i][:name] 
+		 	    @id = @cat[i][:id]%>
+   		           <li id="draggable">
+  			     <%= link_to image_tag(@sm_pic, :border => 0), showsurvey_path({:data => @id}), :remote => true, :data => @id , :id => 'showSurvey'  %>
+	     		  </li>
+			 <% end %>
+			  </ul>
+		         </td></tr>
+	         </table>
+	         </div >  <!-- draggable -->

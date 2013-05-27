@@ -1,0 +1,26 @@
+<%= render :partial => 'layouts/user_profile' %>
+          <div class="inner">
+            <div id="middle_area" > 
+                <%= render :partial => 'middle_user' %>
+            </div> 
+	      <div id="find">
+             <p>Where voters and politicians can discuss and learn about the issues for free with no advertising dollars getting in the way <br />
+             Subscribe to RSS feeds to stay in touch with their latest votes. </p>
+          </div>
+<div_id = "remaining">
+<blockquote>
+<%@all_cats=["3", "4", "5", "6", "7", "8", "9","10", "11", "12", "13", "14", "15", "16","17","18","19","20"]
+ @up = Profile.find(@user.id)
+ @up_list = [ @up[:cat1], @up[:cat2], @up[:cat3],  @up[:cat4], @up[:cat5], @up[:cat6], @up[:cat7], @up[:cat8], @up[:cat9], @up[:cat10], @up[:cat11], @up[:cat12], @up[:cat13], @up[:cat14], @up[:cat15], @up[:cat16], @up[:cat17], @up[:cat18] ] 
+ @up_list = @up_list.reject(&:nil?) 
+ @up_list = @up_list.reject(&:empty?)
+ @remaining_priorities = @all_cats - @up_list %>
+        <h3>Other Issues</h3>
+        <%  @remaining_priorities.each do |rem| 
+              @c = Category.find(rem) %>
+             <%=link_to image_tag(@c.small_pic) ,  showsurvey_path(:id => @user.id, :data => rem), :remote => true %>
+        <% end %>
+</blockquote>
+           </div>
+    </div>   <!-- inner_area -->
+</div>       <!-- content -->

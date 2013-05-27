@@ -1,0 +1,15 @@
+<%@up = Profile.find(@user.id)%>
+<% @up_list = [ @up[:cat1], @up[:cat2], @up[:cat3],  @up[:cat4], @up[:cat5], @up[:cat6], @up[:cat7], @up[:cat8], @up[:cat9], @up[:cat10], @up[:cat11], @up[:cat12], @up[:cat13], @up[:cat14], @up[:cat15], @up[:cat16], @up[:cat17], @up[:cat18] ] %>
+<div id = userpri >
+    <h3>Your Priorities</h3>
+      <th id = "userpri">
+        <%  (0..17).each do |cat| %>
+        <li >
+         <% if @up_list[cat] != nil then
+               @c = Category.find_by_id(@up_list[cat]) %>
+               <%=image_tag(@c.small_pic)%>
+         <% end %>
+         </li>
+        <% end %>     
+      </th>
+ </div>

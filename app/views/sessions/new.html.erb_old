@@ -1,0 +1,33 @@
+<div id="content" class="clearfix">
+ 
+<div class="inner">
+<div class="top_area">
+
+ <h1>Log In</h1>
+ <%= form_tag sessions_path :remote => true  do %>
+  <div class="field">
+    <%= label_tag :email %>
+    <%= text_field_tag :email, params[:email] %>
+  </div>
+  <div class="field">
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+  </div>
+  <% end %>  
+  
+<div id = "login" >   
+  <button>
+   <div class="actions">
+   <%= submit_tag "Log in" %>
+   </div>
+ </button>
+</div>
+
+<div>   
+ <button>
+<%= link_to 'Back', users_path %>
+</button>
+</div>
+  </div><!-- top_area -->
+  </div><!-- inner -->
+</div> <!-- content -->
